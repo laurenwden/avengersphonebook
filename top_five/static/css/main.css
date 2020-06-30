@@ -1,0 +1,53 @@
+.banner{
+    height: 100vh;
+    background-image: linear-gradient(to right bottom,rgba(0,0,0,0.7),rgba(57, 153, 132, 0.6)), url(../images/294601.jpg);
+    background-size: cover;
+    background-position: 35% 50%;
+}
+
+.homepage{
+    height: 70vh;
+    background-image: linear-gradient(to right bottom,rgba(0,0,0,0.7),rgba(57, 153, 132, 0.6)), url(../images/avengers.jpg);
+    background-size: cover;
+    background-position: 35% 50%;
+}
+
+.directory{
+    color: black;
+    size: 150%;
+}
+
+
+.header-text,h1{
+    display: flex;
+    justify-content: center;
+    padding-top: 20%;
+    left: 20rem;
+    top: 10rem;
+    color: white;
+}
+
+.text{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.form-group{
+    margin: 0 auto;
+    color: white;
+    width: 30%;
+}
+
+fieldset{
+    margin: 15px 5px;
+}
+
+.register{
+    margin: 5px 5px;
+}
+
+.relocate{
+    padding-bottom: 400px;
+}
+

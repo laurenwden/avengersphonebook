@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<header class="homepage">
+    <h1 class="header-text">Welcome to the Avengers Phonebook Directory</h1>
+</header>
+
+<h2>Greetings {{ current_user.username }}!</h2>
+
+<div class="container"> 
+    {% if current_user.id == NULL %}
+        <h2>Hello, Avenger! Login or Sign Up</h2>
+        <!--Login Button-->
+        <a href="{{ url_for('login') }}"><button class="btn btn-primary">Login</button></a>
+        <h4>Don't have an account yet? Avengers, assemble your phone numbers!</h4>
+        <!--Register Button-->
+        <a href="{{ url_for('register') }}"><button class="btn btn-success">Register</button></a>
+    {% else %}
+
+        <hr>
+        <h2>Directory</h2>
+        <p>Click on your name to update your info in the directory.</p>
+
+            {% for avenger in avengers %}
+                {% if avenger.user_id == current_user.id %}
+                    <h2><a href="{{ url_for('directory_update', avenger_id = avenger.id) }}">Name: {{ avenger.name }} Phone Number: {{ avenger.phone_number }}</a></h2>
+                    <hr>
+                
+                {% else %}
+                    <h4>Name: {{ avenger.name }}</h4>
+                    <h4>Phone Number: {{ avenger.phone_number }}</h4>
+                    <hr>
+                {% endif %}
+                    
+            {% endfor %}
+
+        {% endif %}
+
+    <h6>Still need to register? You can do that <a href="{{ url_for('phonebookentry') }}">here</a>.</h6>
+</div>
+
+{% endblock content %}

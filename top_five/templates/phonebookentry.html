@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="banner">
+    <h1 class="justify-content-center">Register Your Information for the Avengers Phonebook</h1>
+    
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <fieldset>
+                {{ form.name.label }}
+                {{ form.name(class="form-control",placeholder="Full Name") }}
+            </fieldset>
+            <fieldset>
+                {{ form.phone_number.label }}
+                {{ form.phone_number(class = "form-control", placeholder ="Phone Number (XXX)-XXX-XXXX") }}
+            </fieldset>
+            {{ form.submit(class="btn btn-success") }}
+        </div>
+    </form>
+    </div>
+</div>
+
+
+
+{% endblock content %}

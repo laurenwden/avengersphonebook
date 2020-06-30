@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="banner" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Please enter your new information</h1>
+            <form action="" method="post">
+                {{ update_form.hidden_tag() }}
+                <div class="form-group">
+                <fieldset>
+                        {{ update_form.name.label }}
+                        {{ update_form.name(class="form-control",placeholder="Full Name") }}
+                </fieldset> 
+                <fieldset>
+                    {{ update_form.phone_number.label }}
+                    {{ update_form.phone_number(class="form-control",placeholder="Phone Number (XXX)XXX-XXXX")}}
+                {{ update_form.submit(class="btn btn-success") }}
+                </div>
+            </form>
+                <button type='button' class="btn btn-danger" data-toggle="modal" data-target="#dangerModal">Delete Name and Number</button>
+
+                <!--Delete Button Modal-->
+                <div class="modal fade" id="dangerModal" tabindex="-1" role="dialog" aria-labelledby="dangerModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="dangerModalLabel">Are you sure you want to delete yourself from the Avengers directory?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                This doesn't sound very heroic. Are you not an Avenger anymore?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <form action="{{ url_for('avenger_delete', avenger_id = avenger.id ) }}" method="post">
+                                    <input type="submit" value="Delete" class="btn btn-danger">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}
+
